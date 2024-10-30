@@ -31,3 +31,4 @@ D:\Coding\Streaming-music3\backend\obj\Debug\net8.0\refint\backend.dll
 D:\Coding\Streaming-music3\backend\obj\Debug\net8.0\backend.pdb
 D:\Coding\Streaming-music3\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 D:\Coding\Streaming-music3\backend\obj\Debug\net8.0\ref\backend.dll
+D:\Coding\Streaming-music3\backend\obj\Debug\net8.0\backend.sourcelink.json
