@@ -1,0 +1,6 @@
+@User.Service_HostAddress = http://localhost:5117
+
+GET {{User.Service_HostAddress}}/api/user/
+Accept: application/json
+
+###
