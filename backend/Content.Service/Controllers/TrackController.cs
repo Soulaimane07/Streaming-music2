@@ -1,26 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
+using ContentService.Entities;
+using ContentService.Repositories;
 
 namespace ContentService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TrackController : ControllerBase
+    public class TracksController : ControllerBase
     {
-        // Temporary in-memory list of tracks (replace with a database in a real application)
-        private static List<Track> tracks = new List<Track>();
+        private readonly TracksRepo _tracksRepo;
 
-        // GET: api/track
-        [HttpGet]
-        public ActionResult<IEnumerable<Track>> GetTracks()
+        public TracksController(TracksRepo tracksRepo)
         {
+            _tracksRepo = tracksRepo;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Track>>> GetTracks()
+        {
+            var tracks = await _tracksRepo.GetAllTracksAsync();
             return Ok(tracks);
         }
 
-        // GET: api/track/{id}
         [HttpGet("{id}")]
-        public ActionResult<Track> GetTrack(int id)
+        public async Task<ActionResult<Track>> GetTrack(Guid id)
         {
-            var track = tracks.FirstOrDefault(u => u.Id == id);
+            var track = await _tracksRepo.GetTrackByIdAsync(id);
             if (track == null)
             {
                 return NotFound();
@@ -28,40 +33,36 @@ namespace ContentService.Controllers
             return Ok(track);
         }
 
-        // POST: api/track
         [HttpPost]
-        public ActionResult<Track> CreateTrack(Track track)
+        public async Task<ActionResult<Track>> CreateTrack([FromBody] Track track)
         {
-            track.Id = tracks.Count > 0 ? tracks.Max(u => u.Id) + 1 : 1; // Simple ID generation
-            tracks.Add(track);
-            return CreatedAtAction(nameof(GetTrack), new { id = track.Id }, track);
+            await _tracksRepo.CreateTrackAsync(track);
+            return CreatedAtAction(nameof(GetTrack), new { id = track.id }, track);
         }
 
-        // PUT: api/track/{id}
         [HttpPut("{id}")]
-        public IActionResult UpdateTrack(int id, Track updatedTrack)
+        public async Task<IActionResult> UpdateTrack(Guid id, [FromBody] Track updatedTrack)
         {
-            var track = tracks.FirstOrDefault(u => u.Id == id);
+            var track = await _tracksRepo.GetTrackByIdAsync(id);
             if (track == null)
             {
                 return NotFound();
             }
 
-            track.title = updatedTrack.title;
+            await _tracksRepo.UpdateTrackAsync(id, updatedTrack);
             return NoContent();
         }
 
-        // DELETE: api/track/{id}
         [HttpDelete("{id}")]
-        public IActionResult DeleteTrack(int id)
+        public async Task<IActionResult> DeleteTrack(Guid id)
         {
-            var track = tracks.FirstOrDefault(u => u.Id == id);
+            var track = await _tracksRepo.GetTrackByIdAsync(id);
             if (track == null)
             {
                 return NotFound();
             }
 
-            tracks.Remove(track);
+            await _tracksRepo.DeleteTrackAsync(id);
             return NoContent();
         }
     }

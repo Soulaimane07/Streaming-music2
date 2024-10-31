@@ -32,3 +32,9 @@ D:\Coding\Streaming-music3\backend\Content.Service\obj\Debug\net8.0\refint\Conte
 D:\Coding\Streaming-music3\backend\Content.Service\obj\Debug\net8.0\Content.Service.pdb
 D:\Coding\Streaming-music3\backend\Content.Service\obj\Debug\net8.0\Content.Service.genruntimeconfig.cache
 D:\Coding\Streaming-music3\backend\Content.Service\obj\Debug\net8.0\ref\Content.Service.dll
+D:\Coding\Streaming-music3\backend\Content.Service\bin\Debug\net8.0\DnsClient.dll
+D:\Coding\Streaming-music3\backend\Content.Service\bin\Debug\net8.0\MongoDB.Bson.dll
+D:\Coding\Streaming-music3\backend\Content.Service\bin\Debug\net8.0\MongoDB.Driver.dll
+D:\Coding\Streaming-music3\backend\Content.Service\bin\Debug\net8.0\SharpCompress.dll
+D:\Coding\Streaming-music3\backend\Content.Service\bin\Debug\net8.0\Snappier.dll
+D:\Coding\Streaming-music3\backend\Content.Service\bin\Debug\net8.0\ZstdSharp.dll

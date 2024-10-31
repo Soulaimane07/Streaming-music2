@@ -13,10 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Content.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+745614a1e115f2bba3d21a733005f0b6b1b577d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0270b17334501d8372d6f8259502f87bbe83aea")]
 [assembly: System.Reflection.AssemblyProductAttribute("Content.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Content.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.Versioning.RequiresPreviewFeaturesAttribute()]
 
 // Généré par la classe MSBuild WriteCodeFragment.
 
